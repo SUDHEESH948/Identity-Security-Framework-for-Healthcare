@@ -1,0 +1,27 @@
+
+.timepicker {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.timepicker-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timepicker-select:hover {
+  transform: scale(1.05);
+  border-color: #2575fc;
+}
+
+.timepicker-select:focus {
+  outline: none;
+  border-color: #2575fc;
+  box-shadow: 0 0 5px rgba(37,117,252,0.3);
+}

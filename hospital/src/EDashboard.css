@@ -1,0 +1,1601 @@
+/* Layout */
+.container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.hamburger svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ================= SIDEBAR ================= */
+
+/* Gradient theme */
+.sidebar {
+  width: 180px;
+  background: linear-gradient(135deg, #376dec, #6a11cb);
+  color: white;
+  transition: width 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  padding: 15px 10px;
+  min-width: 70px;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar h3,
+.sidebar p,
+.sidebar button {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.sidebar.open h3,
+.sidebar.open p,
+.sidebar.open button {
+  opacity: 1;
+}
+
+.sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.sidebar button:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.02);
+}
+
+.logout-button {
+  margin-top: 16px;
+  background: rgba(255,255,255,0.18);
+}
+
+/* Expand on hover */
+/* Hide text initially */
+.sidebar h3,
+.sidebar p,
+.sidebar button {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.sidebar:hover h3,
+.sidebar:hover p,
+.sidebar:hover button {
+  opacity: 1;
+}
+
+/* Buttons */
+.sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Hover animation */
+.sidebar button:hover {
+  background: #ff4b2b;
+  transform: scale(1.05);
+}
+
+/* ✅ Active menu highlight */
+.sidebar button.active {
+  background: #ff9800;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255,152,0,0.7);
+}
+
+/* ================= CONTENT ================= */
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #f4f6f8;
+  overflow-y: auto;
+}
+
+.dashboard-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.summary-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(102,126,234,0.15);
+  color: #3f51b5;
+}
+
+.summary-card.doctor .summary-icon {
+  background: rgba(56, 103, 214, 0.15);
+  color: #1f4dd4;
+}
+
+.summary-card.nurse .summary-icon {
+  background: rgba(46, 204, 113, 0.15);
+  color: #16a34a;
+}
+
+.summary-card.lab .summary-icon {
+  background: rgba(123, 73, 208, 0.15);
+  color: #6b21a8;
+}
+
+.summary-card h4 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.summary-card p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* ================= CARD LAYOUT ================= */
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Card hover animation */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ================= ROLE COLORS ================= */
+
+.role-doctor .sidebar {
+  background: linear-gradient(135deg, #2f6ddb, #4d7cff);
+}
+
+.role-nurse .sidebar {
+  background: linear-gradient(135deg, #16a34a, #4ade80);
+}
+
+.role-lab .sidebar {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* ================= PERMISSION BANNER ================= */
+.permission-banner {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.perm-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  margin: 0 4px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.perm-pill.active {
+  background: rgba(255,255,255,0.9);
+  color: #667eea;
+}
+
+.perm-pill:not(.active) {
+  background: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8);
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Tablet and smaller desktop */
+@media (max-width: 1200px) {
+  .dashboard-summary {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .vitals-form {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .content {
+    padding: 20px 15px;
+    margin-left: 0;
+  }
+
+  .dashboard-summary {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .summary-card {
+    padding: 15px;
+  }
+
+  .summary-card h4 {
+    font-size: 14px;
+  }
+
+  .summary-card p {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 10px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-row select,
+  .form-row input {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+
+  .prescription-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .prescription-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .vitals-form {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .medicine-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .medicine-item button {
+    align-self: flex-end;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 2001;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .content {
+    padding: 15px 10px;
+    margin-top: 60px;
+  }
+
+  .dashboard-summary {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .summary-card {
+    padding: 12px;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .summary-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .summary-card h4 {
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .summary-card p {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .card {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .table {
+    font-size: 12px;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px 8px;
+    min-width: 80px;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  .table tbody td {
+    display: block;
+    border: none;
+    text-align: left;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .table tbody td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    color: #667eea;
+  }
+
+  input, select, textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  button {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .form-row {
+    gap: 8px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .prescription-actions {
+    gap: 6px;
+  }
+
+  .vitals-form {
+    gap: 10px;
+  }
+
+  .vitals-form div {
+    margin-bottom: 0;
+  }
+
+  .medicine-item {
+    padding: 10px 12px;
+  }
+
+  .box {
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+
+  .patient-card {
+    padding: 15px;
+  }
+
+  .modal-content {
+    margin: 20px;
+    min-width: auto;
+    width: calc(100% - 40px);
+  }
+
+  .permission-banner {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .perm-pill {
+    padding: 3px 8px;
+    font-size: 11px;
+    margin: 0 2px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .content {
+    padding: 10px 8px;
+    margin-top: 50px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .dashboard-summary {
+    margin-bottom: 10px;
+  }
+
+  .summary-card {
+    padding: 10px;
+  }
+
+  .summary-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .summary-card h4 {
+    font-size: 12px;
+  }
+
+  .summary-card p {
+    font-size: 18px;
+  }
+
+  .table tbody td {
+    padding-left: 40%;
+  }
+
+  .table tbody td:before {
+    left: 6px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .buttons {
+    gap: 6px;
+  }
+
+  .form-row {
+    gap: 6px;
+  }
+
+  .vitals-form {
+    gap: 8px;
+  }
+
+  .medicine-item {
+    padding: 8px 10px;
+  }
+
+  .box {
+    padding: 12px;
+  }
+
+  .patient-card {
+    padding: 12px;
+  }
+
+  .modal-content {
+    margin: 10px;
+    width: calc(100% - 20px);
+    padding: 15px;
+  }
+
+  .permission-banner {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .perm-pill {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+
+/* Focus states */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .sidebar {
+    background: #000;
+    color: #fff;
+  }
+
+  .summary-card {
+    border: 2px solid #000;
+  }
+
+  .card {
+    border: 1px solid #000;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  background: #4facfe;
+  color: white;
+}
+
+.table tr:hover {
+  background: #f1f1f1;
+}
+/* Search box */
+.search-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.search-box input {
+  padding: 5px 10px;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-icon {
+  margin-right: 5px;
+  color: #666;
+}
+
+/* Actions column */
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.action-icon {
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.action-icon.view {
+  color: #007bff; /* blue */
+}
+
+.action-icon.edit {
+  color: #28a745; /* green */
+}
+
+.action-icon:hover {
+  opacity: 0.7;
+}
+.prescription-card {
+  padding: 20px;
+}
+
+.prescription-info td {
+  padding: 5px 10px;
+}
+
+.prescription-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.history-card,
+.vitals-panel,
+.med-tracking {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(20,20,50,0.05);
+  margin-bottom: 18px;
+}
+
+.history-card h4,
+.vitals-panel h4,
+.med-tracking h4 {
+  margin-bottom: 12px;
+}
+
+.history-item,
+.medicine-duration {
+  margin-top: 6px;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.prescription-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vitals-panel input,
+.vitals-panel textarea,
+.med-tracking input {
+  width: 100%;
+}
+
+.med-tracking .medicine-item {
+  background: #f8f9fa;
+  border-left: 4px solid #2563eb;
+}
+
+.med-tracking .medicine-item button {
+  background: #10b981;
+  color: white;
+}
+
+.med-tracking .medicine-item button:hover {
+  background: #0f766e;
+}
+
+.prescription-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.prescription-form textarea {
+  padding: 5px;
+  resize: vertical;
+}
+
+/* ================= ENHANCED STYLES FOR DASHBOARD COMPONENTS ================= */
+
+/* ================= TABLES ================= */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.table tr:hover {
+  background: #f8f9fa;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================= FORMS ================= */
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 2px solid #e1e5e9;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ================= BUTTONS ================= */
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Primary buttons */
+button[type="submit"],
+button:not([type]) {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+button[type="submit"]:hover,
+button:not([type]):hover {
+  background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+
+/* Secondary buttons */
+button[type="button"] {
+  background: #f8f9fa;
+  color: #495057;
+  border: 1px solid #dee2e6;
+}
+
+button[type="button"]:hover {
+  background: #e9ecef;
+}
+
+/* Danger buttons */
+button.danger {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  color: white;
+}
+
+button.danger:hover {
+  background: linear-gradient(135deg, #e8431f, #e63946);
+}
+
+/* ================= BOX COMPONENTS ================= */
+
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  border-left: 4px solid #667eea;
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* ================= PATIENT CARDS ================= */
+
+.patient-card {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.patient-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.patient-card h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.patient-card p {
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+.patient-card .admission-info {
+  background: rgba(255,255,255,0.2);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* ================= STATUS INDICATORS ================= */
+
+.status-active {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-discharged {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: #ffc107;
+  font-weight: bold;
+}
+
+/* ================= LOADING STATES ================= */
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #667eea;
+}
+
+.loading::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ================= ERROR MESSAGES ================= */
+
+.error-message {
+  background: linear-gradient(135deg, #ff9a9e, #fecfef);
+  color: #721c24;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #dc3545;
+  margin-bottom: 15px;
+}
+
+.error-message h4 {
+  margin: 0 0 10px 0;
+  color: #721c24;
+}
+
+.error-message p {
+  margin: 5px 0;
+}
+
+/* ================= SUCCESS MESSAGES ================= */
+
+.success-message {
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  color: #155724;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  margin-bottom: 15px;
+}
+
+/* ================= MEDICINE LIST ================= */
+
+.medicine-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.medicine-item:hover {
+  background: #e9ecef;
+}
+
+.medicine-item button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.medicine-item button:hover {
+  background: #c82333;
+}
+
+/* ================= FILE UPLOAD ================= */
+
+.file-upload {
+  border: 2px dashed #667eea;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  background: #f8f9ff;
+  transition: all 0.3s ease;
+}
+
+.file-upload:hover {
+  background: #f0f2ff;
+  border-color: #5a6fd8;
+}
+
+.file-upload input[type="file"] {
+  margin: 10px 0;
+}
+
+/* ================= VITAL SIGNS FORM ================= */
+
+.vitals-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.vitals-form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.vitals-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #495057;
+}
+
+/* ================= MEDICATION ADMINISTRATION ================= */
+
+.medication-item {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.medication-item h4 {
+  margin: 0 0 8px 0;
+}
+
+.medication-item p {
+  margin: 4px 0;
+  opacity: 0.9;
+}
+
+.medication-item button {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.medication-item button:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ================= LAB RESULTS ================= */
+
+.lab-result {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.lab-result h4 {
+  margin: 0 0 8px 0;
+}
+
+.lab-result p {
+  margin: 4px 0;
+  opacity: 0.9;
+}
+
+.lab-result .result-value {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffd700;
+}
+
+/* ================= UTILITY CLASSES ================= */
+
+.text-center {
+  text-align: center;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.prescription-form select {
+  padding: 5px;
+  height: 100px;
+}
+
+.prescription-form input[type="time"] {
+  padding: 5px;
+  width: 150px;
+}
+
+.prescription-form button {
+  width: 150px;
+  padding: 7px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.prescription-form button:hover {
+  opacity: 0.8;
+}
+.prescription-container {
+  padding: 20px;
+}
+
+/* HEADER */
+.patient-header {
+  background: #054df4;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.patient-header h2 {
+  color: #fffefe;
+  margin: 0;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(47, 16, 219);
+}
+
+/* FORM */
+.section {
+  margin-bottom: 15px;
+}
+
+.section label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkbox-group label {
+  background: #f1f5f9;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* TEXTAREA */
+textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.primary:hover {
+  background: #1d4ed8;
+}
+
+.secondary {
+  background: #16a34a;
+  color: white;
+}
+
+.secondary:hover {
+  background: #15803d;
+}
+
+/* HISTORY TABLE */
+.history-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-card th,
+.history-card td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.empty {
+  color: #777;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+/* ================= MODERN TABLE ================= */
+.modern-table th {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.modern-table td {
+  font-size: 14px;
+}
+
+/* Row hover animation */
+.modern-table tr {
+  transition: all 0.3s ease;
+}
+
+.modern-table tr:hover {
+  background: #f0f8ff;
+  transform: scale(1.01);
+}
+
+/* ================= STATUS BADGES ================= */
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Given */
+.status.given {
+  background: #16a34a;
+  color: white;
+}
+
+/* Pending */
+.status.pending {
+  background: #f59e0b;
+  color: white;
+}
+
+/* ================= CARD TITLE ================= */
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ================= TABLE ANIMATION ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Lab buttons */
+.secondary {
+  background: #16a34a;
+  color: white;
+}
+
+.secondary:hover {
+  transform: scale(1.05);
+}
+
+/* Status */
+.status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.pending {
+  background: #f59e0b;
+  color: white;
+}
+
+.status.completed {
+  background: #16a34a;
+  color: white;
+}
+
+/* Empty */
+.empty {
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
+}
+/* ================= MESSAGE BOX ================= */
+
+.message-box {
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* ✅ Success */
+.message-box.success {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #28a745;
+}
+
+/* ❌ Error */
+.message-box.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #dc3545;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-row select,
+.form-row input {
+  min-width: 180px;
+  flex: 1;
+}
+
+.medicine-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #f8f9fe;
+  margin-bottom: 10px;
+  border: 1px solid #dfe4ee;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.section h4 {
+  margin: 15px 0 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.empty {
+  color: #666;
+  margin: 10px 0;
+}
+
+.timing-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.timing-badge.empty {
+  background: #ccc;
+  color: #666;
+}

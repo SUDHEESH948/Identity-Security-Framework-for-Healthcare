@@ -1,0 +1,167 @@
+/* ---------------- ROOT COLORS ---------------- */
+:root {
+  --bg: linear-gradient(135deg, #efa8b8, #178cec);
+  --card-bg: #ffffff;
+  --primary: #1976d2;
+  --secondary: #0f12ee;
+  --text: #333;
+}
+
+/* ---------------- PAGE ---------------- */
+.auth-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------------- CARD ---------------- */
+.auth-card {
+  width: 420px;
+  height: 499px;
+  perspective: 1000px;
+  position: relative;
+}
+
+/* Flip */
+.auth-card.flipped .auth-front {
+  transform: rotateY(180deg);
+}
+.auth-card.flipped .auth-back {
+  transform: rotateY(0deg);
+}
+
+/* ---------------- CENTER BOX ---------------- */
+.auth-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  border-radius: 15px;
+  background: var(--card-bg);
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: transform 0.6s ease;
+  backface-visibility: hidden;
+}
+
+/* Header colors */
+.auth-front {
+  transform: rotateY(0deg);
+  border-top: 6px solid var(--primary);
+}
+
+.auth-back {
+  transform: rotateY(180deg);
+  border-top: 6px solid var(--secondary);
+}
+
+/* ---------------- TITLE ---------------- */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+/* ---------------- INPUT GROUP ---------------- */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* INPUT */
+.input-group input {
+  width: 100%;
+  padding: 12px 55px 12px 40px; /* 🔥 FIXED spacing */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+}
+
+/* LEFT ICON */
+.input-group svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary);
+}
+
+/* RIGHT ICON (EYE) */
+.input-group span {
+  position: absolute;
+  right: 40px; /* 🔥 FIXED */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2; /* 🔥 IMPORTANT */
+}
+
+/* PREVENT INPUT OVERLAP */
+.input-group input:focus {
+  border-color: var(--primary);
+  background: #fff;
+}
+
+/* ---------------- BUTTON ---------------- */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0da123;
+}
+
+button:disabled {
+  opacity: 0.7;
+}
+
+/* ---------------- LINKS ---------------- */
+p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+p span {
+  color: var(--secondary);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ---------------- ERROR & SUCCESS ---------------- */
+.error {
+  background: #ffebee;
+  color: #c62828;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ---------------- HOVER ---------------- */
+.auth-face:hover {
+  transform: scale(1.02);
+}
+

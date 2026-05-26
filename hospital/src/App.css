@@ -1,0 +1,163 @@
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Background */
+
+.main{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:
+  linear-gradient(
+  rgba(0,0,0,0.5),
+  rgba(0,0,0,0.5)),
+  url("https://images.unsplash.com/photo-1587351021759-3e566b6af7cc");
+
+  background-size:cover;
+  background-position:center;
+}
+
+/* Login Card */
+
+.login-card{
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:15px;
+  width:340px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.3);
+  text-align:center;
+
+  animation:fadeIn 0.8s ease;
+}
+
+.login-card h2{
+  color:white;
+  margin-bottom:20px;
+}
+
+/* Input Field */
+
+.input-box{
+  position:relative;
+  margin-bottom:15px;
+  width:100%;
+}
+
+/* Fix overflow problem */
+
+.input-box input{
+  width:100%;
+  padding:12px 40px;
+  border-radius:8px;
+  border:none;
+  outline:none;
+  font-size:14px;
+
+  box-sizing:border-box;   /* IMPORTANT FIX */
+}
+
+/* Left Icon */
+
+.icon{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#555;
+}
+
+/* Eye icon */
+
+.eye{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  cursor:pointer;
+}
+
+/* Role Buttons */
+
+.role-buttons{
+  display:flex;
+  gap:8px;
+  margin-bottom:15px;
+}
+
+.role-buttons button{
+  flex:1;
+  padding:8px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.role-buttons button:hover{
+  background:#ddd;
+}
+
+.active{
+  background:#0d6efd;
+  color:white;
+}
+
+/* Login Button */
+
+.login-btn{
+  width:100%;
+  padding:12px;
+  background:#0d6efd;
+  color:white;
+  border:none;
+  border-radius:8px;
+  margin-top:10px;
+  cursor:pointer;
+  font-size:15px;
+  transition:0.3s;
+}
+
+.login-btn:hover{
+  background:#084298;
+  transform:scale(1.03);
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Mobile */
+
+@media (max-width:480px){
+
+  .login-card{
+    width:90%;
+    padding:30px;
+  }
+
+  .role-buttons{
+    flex-direction:column;
+  }
+
+}
+.error{
+  color:white;
+  font-size:12px;
+  text-align:left;
+  margin-top:4px;
+}

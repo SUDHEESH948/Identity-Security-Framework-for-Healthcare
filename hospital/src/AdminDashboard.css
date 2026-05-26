@@ -1,0 +1,549 @@
+:root {
+  --primary-color: #1976d2;
+  --secondary-color: #4caf50;
+  --hover-color: #0d47a1;
+  --text-color: #555;
+  --background-light: rgba(255, 255, 255, 0.82);
+  --box-shadow-light: rgba(0, 0, 0, 0.06);
+}
+
+/* -----------------------------
+   Global Dashboard Container
+------------------------------ */
+.admin-dashboard {
+  background: linear-gradient(135deg, rgba(245, 247, 250, 0.85), rgba(227, 242, 253, 0.85)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoTCfydaLL8R6ltcQcJCoH3zwlWGXQr4njwOUN-yCtzoT8yUzHxEs0Bu0&s");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 30px 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Ensure children stay readable over the background */
+.admin-dashboard>.MuiContainer-root {
+  background: var(--background-light);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* -----------------------------
+   Dashboard Title
+------------------------------ */
+.dashboard-title {
+  text-align: center;
+  color: #1565c0;
+  font-weight: 700;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+/* -----------------------------
+   Role Cards
+------------------------------ */
+.role-card {
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  padding: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.role-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.role-card h6 {
+  color: #555;
+  font-weight: 500;
+}
+
+.role-card h4 {
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* -----------------------------
+   Employee Form Container
+------------------------------ */
+.employee-form-paper {
+  padding: 25px;
+  margin-bottom: 35px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* -----------------------------
+   Form Layout
+------------------------------ */
+.employee-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  align-items: center;
+}
+
+.employee-form .MuiTextField-root,
+.employee-form .MuiFormControl-root {
+  width: 100%;
+}
+
+/* -----------------------------
+   Time Fields Fix
+------------------------------ */
+.employee-form input[type="time"] {
+  width: 100%;
+}
+
+.employee-form .MuiSelect-select {
+  min-height: 40px;
+}
+
+/* -----------------------------
+   Permissions
+------------------------------ */
+.permissions-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.employee-form .MuiFormGroup-root {
+  grid-column: span 2;
+  margin-top: 10px;
+}
+
+.employee-form .MuiFormControlLabel-root {
+  margin-right: 20px;
+}
+
+/* Permission Checkboxes */
+.permissions-group .MuiFormControlLabel-root:nth-child(1) .MuiCheckbox-root {
+  color: #4caf50;
+}
+
+.permissions-group .MuiFormControlLabel-root:nth-child(1) .MuiCheckbox-root.Mui-checked {
+  color: #4caf50;
+}
+
+.permissions-group .MuiFormControlLabel-root:nth-child(2) .MuiCheckbox-root {
+  color: #ff9800;
+}
+
+.permissions-group .MuiFormControlLabel-root:nth-child(2) .MuiCheckbox-root.Mui-checked {
+  color: #ff9800;
+}
+
+.permissions-group .MuiFormControlLabel-root:nth-child(3) .MuiCheckbox-root {
+  color: #e53935;
+}
+
+.permissions-group .MuiFormControlLabel-root:nth-child(3) .MuiCheckbox-root.Mui-checked {
+  color: #e53935;
+}
+
+/* -----------------------------
+   Submit Button
+------------------------------ */
+.form-submit,
+.employee-form button {
+  grid-column: span 2;
+  background: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-submit:hover,
+.employee-form button:hover {
+  background: var(--hover-color);
+  transform: translateY(-1px);
+}
+
+/* -----------------------------
+   Employee Table
+------------------------------ */
+.employee-table-paper {
+  border-radius: 14px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Table Header */
+.table-head {
+  background: #1976d2;
+}
+
+.table-head th {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Column specific header colors */
+.table-head th:nth-child(1) {
+  background: #1976d2;
+}
+
+/* Emp ID */
+.table-head th:nth-child(2) {
+  background: #4caf50;
+}
+
+/* Name */
+.table-head th:nth-child(3) {
+  background: #9c27b0;
+}
+
+/* Email */
+.table-head th:nth-child(4) {
+  background: #ff9800;
+}
+
+/* Role */
+.table-head th:nth-child(5) {
+  background: #009688;
+}
+
+/* Department */
+.table-head th:nth-child(6) {
+  background: #e91e63;
+}
+
+/* Start */
+.table-head th:nth-child(7) {
+  background: #795548;
+}
+
+/* End */
+.table-head th:nth-child(8) {
+  background: #607d8b;
+}
+
+/* Permissions */
+.table-head th:nth-child(9) {
+  background: #f44336;
+}
+
+/* Actions */
+
+/* Table Rows */
+.MuiTableRow-root:hover {
+  background: #f3f8ff;
+  transition: 0.2s;
+}
+
+/* Column specific cell colors */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(1) {
+  background: rgba(25, 118, 210, 0.1);
+}
+
+/* Emp ID */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(2) {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+/* Name */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(3) {
+  background: rgba(156, 39, 176, 0.1);
+}
+
+/* Email */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(4) {
+  background: rgba(255, 152, 0, 0.1);
+}
+
+/* Role */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(5) {
+  background: rgba(0, 150, 136, 0.1);
+}
+
+/* Department */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(6) {
+  background: rgba(233, 30, 99, 0.1);
+}
+
+/* Start */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(7) {
+  background: rgba(121, 85, 72, 0.1);
+}
+
+/* End */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(8) {
+  background: rgba(96, 125, 139, 0.1);
+}
+
+/* Permissions */
+.MuiTableBody-root .MuiTableRow-root td:nth-child(9) {
+  background: rgba(244, 67, 54, 0.1);
+}
+
+/* Actions */
+
+/* -----------------------------
+   Permission Tags
+------------------------------ */
+.perm-read {
+  background: #4caf50;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 6px;
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.perm-write {
+  background: #ff9800;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 6px;
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.perm-modify {
+  background: #e53935;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* -----------------------------
+   Table Actions
+------------------------------ */
+.MuiIconButton-root {
+  transition: transform 0.2s ease;
+}
+
+.MuiIconButton-root:hover {
+  transform: scale(1.2);
+}
+
+/* Action Icons Colors */
+.MuiIconButton-root .MuiSvgIcon-root {
+  color: #1976d2;
+  /* Default blue for edit */
+}
+
+.MuiIconButton-root[color="error"] .MuiSvgIcon-root {
+  color: #d32f2f;
+  /* Red for delete */
+}
+
+/* -----------------------------
+   Form Input Icons
+------------------------------ */
+.employee-form .MuiInputAdornment-root .MuiSvgIcon-root {
+  color: #1976d2;
+  /* Blue for input icons */
+}
+
+/* Specific colors for different icons */
+.employee-form .MuiTextField-root:nth-child(1) .MuiInputAdornment-root .MuiSvgIcon-root {
+  color: #1976d2;
+  /* Person - Blue */
+}
+
+.employee-form .MuiTextField-root:nth-child(2) .MuiInputAdornment-root .MuiSvgIcon-root {
+  color: #388e3c;
+  /* Email - Green */
+}
+
+/* -----------------------------
+   Table Responsive
+------------------------------ */
+.MuiTableContainer-root {
+  overflow-x: auto;
+}
+
+/* -----------------------------
+   Snackbar Position
+------------------------------ */
+.MuiSnackbar-root {
+  bottom: 25px !important;
+}
+
+/* -----------------------------
+   Responsive Design
+------------------------------ */
+@media (max-width: 900px) {
+
+  /* Employee Form */
+  .employee-form {
+    grid-template-columns: 1fr;
+  }
+
+  .permissions-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .employee-form button,
+  .form-submit {
+    grid-column: span 1;
+  }
+
+  /* Role Cards */
+  .role-card {
+    margin-bottom: 20px;
+  }
+
+  /* Dashboard Title */
+  .dashboard-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+
+  /* Employee Table */
+  .employee-table-paper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .table-head th {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .MuiTableCell-root {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  /* Role card h4 font-size */
+  .role-card h4 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Dashboard Title */
+  .dashboard-title {
+    font-size: 20px;
+  }
+
+  /* Role card */
+  .role-card h6 {
+    font-size: 12px;
+  }
+
+  .role-card h4 {
+    font-size: 20px;
+  }
+
+  /* Employee Form */
+  .employee-form {
+    gap: 12px;
+  }
+
+  .permissions-group {
+    gap: 10px;
+  }
+
+  .form-submit,
+  .employee-form button {
+    padding: 8px 20px;
+  }
+
+  /* Table responsive scroll */
+  .MuiTableContainer-root {
+    overflow-x: scroll;
+  }
+}
+
+/* Make table scroll smoother */
+.MuiTableContainer-root {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text breaking badly */
+.MuiTableCell-root {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .employee-form {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-form .MuiFormGroup-root {
+    grid-column: span 1;
+  }
+
+  .permissions-group {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+.role-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+@media (max-width: 600px) {
+
+  .form-submit,
+  .employee-form button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard {
+    background: linear-gradient(135deg,
+        rgba(245, 247, 250, 0.95),
+        rgba(227, 242, 253, 0.95));
+  }
+}
+
+@media (max-width: 500px) {
+  .MuiSvgIcon-root {
+    font-size: 18px !important;
+  }
+
+  .MuiTableCell-root {
+    font-size: 11px;
+  }
+}
+
+/* Accessibility Improvements */
+.role-card:focus,
+.form-submit:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Hover Effects */
+.employee-table-paper:hover {
+  box-shadow: 0 8px 20px var(--box-shadow-light);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .admin-dashboard {
+    background: #121212;
+    color: #e0e0e0;
+  }
+
+  .role-card {
+    background: #1e1e1e;
+    color: #e0e0e0;
+  }
+}
